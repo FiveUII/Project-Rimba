@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41015625, y: 0.41015625, z: 1}
+  m_LocalScale: {x: 0.40975606, y: 0.40975606, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1330110107322068860}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: fdc271455a7f5f940b30e542d030839b, type: 3}
+  m_Sprite: {fileID: 1611895592, guid: 1964400dc8d029348996bb38ec9d723b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -190,8 +190,10 @@ MonoBehaviour:
   patrolRange: 3
   playerTorso: {fileID: 0}
   attackRange: 2
+  throwRange: 7.5
   windupDuration: 0.6
   attackCooldown: 1.2
+  axeProjectilePrefab: {fileID: 6726389558918375472, guid: af660b48605b08942878e59649ed6859, type: 3}
 --- !u!70 &4377029432483692015
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

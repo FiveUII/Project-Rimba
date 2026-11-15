@@ -16,8 +16,10 @@ namespace ProjectRimba.Enemy
         [Header("Combat")]
         [SerializeField] private Transform playerTorso;
         [SerializeField] private float attackRange = 2f;
+        [SerializeField] private float throwRange = 7.5f;
         [SerializeField] private float windupDuration = 0.6f;
         [SerializeField] private float attackCooldown = 1.2f;
+        [SerializeField] private GameObject axeProjectilePrefab;
 
         public event System.Action OnAttack;
         public bool IsMoving => _state == State.Patrol;
@@ -75,8 +77,10 @@ namespace ProjectRimba.Enemy
                 _patrolDir *= -1;
             }
 
-            if (playerTorso != null && Vector2.Distance(transform.position, playerTorso.position) <= attackRange)
+            float detectRange = axeProjectilePrefab != null ? throwRange : attackRange;
+            if (playerTorso != null && Vector2.Distance(transform.position, playerTorso.position) <= detectRange)
             {
+                _patrolDir = playerTorso.position.x >= transform.position.x ? 1 : -1;
                 _state = State.Windup;
                 _stateTimer = windupDuration;
                 if (_sprite != null) _sprite.color = Color.yellow;
@@ -88,12 +92,24 @@ namespace ProjectRimba.Enemy
             if (_sprite != null) _sprite.color = _baseColor;
             OnAttack?.Invoke();
 
-            if (playerTorso != null && Vector2.Distance(transform.position, playerTorso.position) <= attackRange * 1.2f)
+            if (playerTorso != null)
             {
-                if (playerTorso.TryGetComponent(out IDamageable target))
+                float dist = Vector2.Distance(transform.position, playerTorso.position);
+                Vector2 dir = ((Vector2)playerTorso.position - (Vector2)transform.position).normalized;
+                if (dist <= attackRange * 1.2f)
                 {
-                    Vector2 hitNormal = ((Vector2)playerTorso.position - (Vector2)transform.position).normalized;
-                    target.TakeDamage(1f, hitNormal);
+                    if (playerTorso.TryGetComponent(out IDamageable target))
+                    {
+                        target.TakeDamage(1f, dir);
+                    }
+                }
+                else if (axeProjectilePrefab != null && dist <= throwRange * 1.2f)
+                {
+                    var go = Instantiate(axeProjectilePrefab, transform.position + Vector3.up * 0.25f, Quaternion.identity);
+                    if (go.TryGetComponent(out AxeProjectile proj))
+                    {
+                        proj.Initialize(dir);
+                    }
                 }
             }
 
