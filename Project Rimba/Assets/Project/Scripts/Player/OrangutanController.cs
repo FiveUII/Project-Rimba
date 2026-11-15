@@ -50,6 +50,7 @@ namespace ProjectRimba.Player
         [SerializeField] private SpriteRenderer slashVisual;
 
         public event Action<bool> OnPythonUnlockedChanged;
+        public event Action OnAttack;
 
         public bool IsGrappling { get; private set; }
         public bool IsNearGrabbable { get; private set; }
@@ -258,6 +259,7 @@ namespace ProjectRimba.Player
         private void PerformAttack()
         {
             _nextAttackTime = Time.time + attackCooldown;
+            OnAttack?.Invoke();
 
             Vector2 toMouse = _mouseWorldPos - _rb.position;
             Vector2 attackDir;

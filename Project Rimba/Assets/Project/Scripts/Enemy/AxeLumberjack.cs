@@ -19,6 +19,11 @@ namespace ProjectRimba.Enemy
         [SerializeField] private float windupDuration = 0.6f;
         [SerializeField] private float attackCooldown = 1.2f;
 
+        public event System.Action OnAttack;
+        public bool IsMoving => _state == State.Patrol;
+        public bool IsWindingUp => _state == State.Windup;
+        public int PatrolDir => _patrolDir;
+
         private SpriteRenderer _sprite;
         private Color _baseColor;
         private State _state = State.Patrol;
@@ -31,7 +36,8 @@ namespace ProjectRimba.Enemy
         {
             _currentHp = maxHp;
             _startPos = transform.position;
-            if (TryGetComponent(out _sprite))
+            _sprite = GetComponentInChildren<SpriteRenderer>();
+            if (_sprite != null)
             {
                 _baseColor = _sprite.color;
             }
@@ -80,6 +86,7 @@ namespace ProjectRimba.Enemy
         private void ExecuteAttack()
         {
             if (_sprite != null) _sprite.color = _baseColor;
+            OnAttack?.Invoke();
 
             if (playerTorso != null && Vector2.Distance(transform.position, playerTorso.position) <= attackRange * 1.2f)
             {
