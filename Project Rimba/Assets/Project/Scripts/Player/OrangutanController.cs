@@ -241,7 +241,7 @@ namespace ProjectRimba.Player
             grappleLine.enabled = IsGrappling;
             if (IsGrappling)
             {
-                grappleLine.SetPosition(0, _rb.position);
+                grappleLine.SetPosition(0, _rb.position + new Vector2(_facingDir * 0.35f, 0.15f));
                 grappleLine.SetPosition(1, _grapplePoint);
             }
         }
