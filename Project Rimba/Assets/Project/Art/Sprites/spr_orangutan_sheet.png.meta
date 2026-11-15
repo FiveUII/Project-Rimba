@@ -142,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 354b21bf559ba1545880c7e545588803
+      spriteID: 8436afc028b617e4d8e931fb1de4e390
       internalID: -1972452584
       vertices: []
       indices: 
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00df205c1f61e464eab9214bea3d844b
+      spriteID: 8042e808f66a3e149b22f84b1bfaea7f
       internalID: -925518497
       vertices: []
       indices: 
@@ -186,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9117aa6d1772945a2abdae7729d32a
+      spriteID: 509fca76ae9d6b043aa9f74bfdc1899d
       internalID: -1935171121
       vertices: []
       indices: 
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ea9de02e239b30408e74cb2f8fe7236
+      spriteID: d5afec132f5691c4c9a3078dc81b11ce
       internalID: -402483617
       vertices: []
       indices: 
@@ -230,8 +230,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd5909261c96b8945a518bfc79d4dba8
+      spriteID: afe01469251d15c4891a61a92e940296
       internalID: 338274324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orangutan_hurt
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b51be74554fc3149bc55bcd9c2aeb57
+      internalID: 2135885181
       vertices: []
       indices: 
       edges: []
@@ -251,6 +273,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       orangutan_attack: -402483617
+      orangutan_hurt: 2135885181
       orangutan_idle: -1972452584
       orangutan_jump: -1935171121
       orangutan_run: -925518497

@@ -123,7 +123,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 650
+        width: 700
         height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -133,7 +133,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c7778abb6d0b40478523b329a0e852d
+      spriteID: 9fd5ed961e7419d408f7315b7badaab9
       internalID: 1238381345
       vertices: []
       indices: 
@@ -143,10 +143,10 @@ TextureImporter:
       name: tree_branch
       rect:
         serializedVersion: 2
-        x: 650
-        y: 494
-        width: 285
-        height: 315
+        x: 732
+        y: 555
+        width: 304
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,7 +155,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87f851672c0e0ed47aad0d3f21f095d6
+      spriteID: d7aec0498f9e57a429c26b76f1dd5988
       internalID: -1282442589
       vertices: []
       indices: 

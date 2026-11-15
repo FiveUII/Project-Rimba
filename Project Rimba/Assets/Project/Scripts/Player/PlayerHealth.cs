@@ -10,6 +10,7 @@ namespace ProjectRimba.Player
         [SerializeField] private float invincibilityDuration = 1.2f;
 
         public event Action<int, int> OnHealthChanged;
+        public event Action OnDamaged;
         public event Action OnDied;
 
         public int CurrentSegments { get; private set; }
@@ -31,6 +32,7 @@ namespace ProjectRimba.Player
 
             Debug.Log($"[PlayerHealth] Kena serangan! Sisa Daun: {CurrentSegments}/{maxSegments}");
             OnHealthChanged?.Invoke(CurrentSegments, maxSegments);
+            OnDamaged?.Invoke();
 
             if (CurrentSegments == 0)
             {

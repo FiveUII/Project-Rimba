@@ -142,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12f04a4b9e5a6b74da180ecdd26504fd
+      spriteID: 31d9e283bb151964bab9bec68aa42147
       internalID: 1611895592
       vertices: []
       indices: 
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae22bf38efb763439942e63d7c73dc1
+      spriteID: 830be3dfa3cfa6c418959740dbc8ff07
       internalID: 2023037389
       vertices: []
       indices: 
@@ -186,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24e121284b7ca684d973dc837a4bf4d6
+      spriteID: 6945541e03b64e84294c090796306024
       internalID: -54249944
       vertices: []
       indices: 
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aa9798466adc67499cddb607a812879
+      spriteID: d79c504fd898ae34ba3a225bacc246b2
       internalID: 1188128003
       vertices: []
       indices: 
@@ -230,8 +230,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 589cfbfc3a942374cab88226ce457956
+      spriteID: d55b6263ab1883d4d925fdf8940f6919
       internalID: 1048161842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lumberjack_hurt
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdec4caf22e22154fb9195edf99c4cae
+      internalID: -276100219
       vertices: []
       indices: 
       edges: []
@@ -252,6 +274,7 @@ TextureImporter:
     nameFileIdTable:
       lumberjack_attack: 1188128003
       lumberjack_axe: 1048161842
+      lumberjack_hurt: -276100219
       lumberjack_idle: 1611895592
       lumberjack_patrol: 2023037389
       lumberjack_windup: -54249944

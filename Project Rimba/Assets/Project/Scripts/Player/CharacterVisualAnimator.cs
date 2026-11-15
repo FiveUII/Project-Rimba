@@ -15,9 +15,11 @@ namespace ProjectRimba.Player
         private static readonly int IsGrapplingHash = Animator.StringToHash("IsGrappling");
         private static readonly int IsWindingUpHash = Animator.StringToHash("IsWindingUp");
         private static readonly int AttackHash = Animator.StringToHash("Attack");
+        private static readonly int HurtHash = Animator.StringToHash("Hurt");
 
         private Animator _animator;
         private OrangutanController _player;
+        private PlayerHealth _playerHealth;
         private Rigidbody2D _playerRb;
         private AxeLumberjack _lumberjack;
         private SpriteRenderer _sprite;
@@ -27,6 +29,7 @@ namespace ProjectRimba.Player
             _animator = GetComponent<Animator>();
             _sprite = GetComponent<SpriteRenderer>();
             _player = GetComponentInParent<OrangutanController>();
+            _playerHealth = GetComponentInParent<PlayerHealth>();
             _playerRb = GetComponentInParent<Rigidbody2D>();
             _lumberjack = GetComponentInParent<AxeLumberjack>();
         }
@@ -34,13 +37,23 @@ namespace ProjectRimba.Player
         private void OnEnable()
         {
             if (_player != null) _player.OnAttack += HandleAttack;
-            if (_lumberjack != null) _lumberjack.OnAttack += HandleAttack;
+            if (_playerHealth != null) _playerHealth.OnDamaged += HandleHurt;
+            if (_lumberjack != null)
+            {
+                _lumberjack.OnAttack += HandleAttack;
+                _lumberjack.OnHurt += HandleHurt;
+            }
         }
 
         private void OnDisable()
         {
             if (_player != null) _player.OnAttack -= HandleAttack;
-            if (_lumberjack != null) _lumberjack.OnAttack -= HandleAttack;
+            if (_playerHealth != null) _playerHealth.OnDamaged -= HandleHurt;
+            if (_lumberjack != null)
+            {
+                _lumberjack.OnAttack -= HandleAttack;
+                _lumberjack.OnHurt -= HandleHurt;
+            }
         }
 
         private void Update()
@@ -66,6 +79,11 @@ namespace ProjectRimba.Player
         private void HandleAttack()
         {
             _animator.SetTrigger(AttackHash);
+        }
+
+        private void HandleHurt()
+        {
+            _animator.SetTrigger(HurtHash);
         }
     }
 }

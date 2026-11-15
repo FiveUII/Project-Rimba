@@ -22,6 +22,7 @@ namespace ProjectRimba.Enemy
         [SerializeField] private GameObject axeProjectilePrefab;
 
         public event System.Action OnAttack;
+        public event System.Action OnHurt;
         public bool IsMoving => _state == State.Patrol;
         public bool IsWindingUp => _state == State.Windup;
         public int PatrolDir => _patrolDir;
@@ -125,7 +126,16 @@ namespace ProjectRimba.Enemy
             if (_currentHp <= 0f)
             {
                 Destroy(gameObject);
+                return;
             }
+
+            if (_state == State.Windup)
+            {
+                _state = State.Cooldown;
+                _stateTimer = 0.5f;
+                if (_sprite != null) _sprite.color = _baseColor;
+            }
+            OnHurt?.Invoke();
         }
     }
 }
