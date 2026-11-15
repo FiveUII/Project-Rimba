@@ -94,6 +94,7 @@ namespace ProjectRimba.Player
         private bool _inHitStop;
         private Vector2 _mouseWorldPos;
         private Vector2 _grapplePoint;
+        private SpriteRenderer _branchHighlightSr;
 
         private void Awake()
         {
@@ -113,6 +114,15 @@ namespace ProjectRimba.Player
             _grappleJoint.maxDistanceOnly = true;
 
             _attackFilter = new ContactFilter2D { useTriggers = true, useLayerMask = true };
+
+            var hlGo = new GameObject("BranchHighlight_Visual");
+            _branchHighlightSr = hlGo.AddComponent<SpriteRenderer>();
+            _branchHighlightSr.enabled = false;
+        }
+
+        private void OnDestroy()
+        {
+            if (_branchHighlightSr != null) Destroy(_branchHighlightSr.gameObject);
         }
 
         private void Update()
@@ -236,6 +246,8 @@ namespace ProjectRimba.Player
 
         private void LateUpdate()
         {
+            UpdateBranchHighlight();
+
             if (grappleLine == null) return;
 
             grappleLine.enabled = IsGrappling;
@@ -243,6 +255,30 @@ namespace ProjectRimba.Player
             {
                 grappleLine.SetPosition(0, _rb.position + new Vector2(_facingDir * 0.35f, 0.15f));
                 grappleLine.SetPosition(1, _grapplePoint);
+            }
+        }
+
+        private void UpdateBranchHighlight()
+        {
+            if (_branchHighlightSr == null) return;
+
+            Collider2D target = IsGrappling ? CurrentGrappledCollider : FindBestBranch();
+            if (target != null && target.TryGetComponent(out SpriteRenderer targetSr) && targetSr.sprite != null)
+            {
+                _branchHighlightSr.enabled = true;
+                _branchHighlightSr.sprite = targetSr.sprite;
+                _branchHighlightSr.flipX = targetSr.flipX;
+                _branchHighlightSr.sortingOrder = targetSr.sortingOrder - 1;
+                _branchHighlightSr.transform.SetPositionAndRotation(targetSr.transform.position, targetSr.transform.rotation);
+                float pulse = 1.12f + 0.04f * Mathf.Sin(Time.time * 8f);
+                _branchHighlightSr.transform.localScale = targetSr.transform.lossyScale * pulse;
+                _branchHighlightSr.color = IsGrappling
+                    ? new Color(0.4f, 1f, 0.5f, 0.9f)
+                    : new Color(0.8f, 1f, 0.3f, 0.85f);
+            }
+            else
+            {
+                _branchHighlightSr.enabled = false;
             }
         }
 
