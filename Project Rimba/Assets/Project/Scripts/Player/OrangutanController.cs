@@ -306,6 +306,8 @@ namespace ProjectRimba.Player
             else
             {
                 attackDir = toMouse.x >= 0f ? Vector2.right : Vector2.left;
+                _facingDir = attackDir.x;
+                transform.localScale = new Vector3(_facingDir, 1f, 1f);
             }
 
             Vector2 hitOrigin = _rb.position + attackDir * attackRange;
@@ -352,8 +354,11 @@ namespace ProjectRimba.Player
         {
             if (slashVisual == null) return;
             slashVisual.transform.position = origin;
+            Vector3 s = slashVisual.transform.localScale;
+            slashVisual.transform.localScale = new Vector3(Mathf.Abs(s.x) * _facingDir, Mathf.Abs(s.y), s.z);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             slashVisual.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            slashVisual.flipY = dir.x < -0.5f;
             slashVisual.enabled = true;
             _slashTimer = 0.09f;
         }
