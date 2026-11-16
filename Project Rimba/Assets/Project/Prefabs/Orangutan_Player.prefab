@@ -505,6 +505,7 @@ MonoBehaviour:
   groundCheckRadius: 0.25
   grappleLine: {fileID: 6202776554726504990}
   slashVisual: {fileID: 2684822519862749078}
+  pythonGrappleMaterial: {fileID: 2100000, guid: e89e25622e39dff48bd6ac2f34969256, type: 2}
 --- !u!1 &8420573823743196782
 GameObject:
   m_ObjectHideFlags: 0

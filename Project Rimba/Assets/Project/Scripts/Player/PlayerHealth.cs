@@ -11,6 +11,7 @@ namespace ProjectRimba.Player
 
         public event Action<int, int> OnHealthChanged;
         public event Action OnDamaged;
+        public event Action OnHealed;
         public event Action OnDied;
 
         public int CurrentSegments { get; private set; }
@@ -48,6 +49,7 @@ namespace ProjectRimba.Player
             CurrentSegments = Mathf.Min(maxSegments, CurrentSegments + segments);
             Debug.Log($"[PlayerHealth] Heal! Sisa Daun: {CurrentSegments}/{maxSegments}");
             OnHealthChanged?.Invoke(CurrentSegments, maxSegments);
+            OnHealed?.Invoke();
         }
     }
 }

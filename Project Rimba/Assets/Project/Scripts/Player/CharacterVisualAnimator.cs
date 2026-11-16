@@ -27,22 +27,37 @@ namespace ProjectRimba.Player
         private Rigidbody2D _playerRb;
         private AxeLumberjack _lumberjack;
         private SpriteRenderer _sprite;
+        private SpriteRenderer _healGlowSr;
+        private float _healGlowTimer;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
-            _sprite = GetComponent<SpriteRenderer>();
+            _sprite = GetComponentInChildren<SpriteRenderer>();
             _player = GetComponentInParent<OrangutanController>();
             _playerHealth = GetComponentInParent<PlayerHealth>();
             _playerAdrenaline = GetComponentInParent<PlayerAdrenaline>();
             _playerRb = GetComponentInParent<Rigidbody2D>();
             _lumberjack = GetComponentInParent<AxeLumberjack>();
+
+            if (_player != null && _sprite != null)
+            {
+                var glowGo = new GameObject("HealGlow_Visual");
+                glowGo.transform.SetParent(transform, false);
+                _healGlowSr = glowGo.AddComponent<SpriteRenderer>();
+                _healGlowSr.sortingOrder = _sprite.sortingOrder - 1;
+                _healGlowSr.enabled = false;
+            }
         }
 
         private void OnEnable()
         {
             if (_player != null) _player.OnAttack += HandlePlayerAttack;
-            if (_playerHealth != null) _playerHealth.OnDamaged += HandleHurt;
+            if (_playerHealth != null)
+            {
+                _playerHealth.OnDamaged += HandleHurt;
+                _playerHealth.OnHealed += HandleHealed;
+            }
             if (_lumberjack != null)
             {
                 _lumberjack.OnAttack += HandleAttack;
@@ -53,7 +68,11 @@ namespace ProjectRimba.Player
         private void OnDisable()
         {
             if (_player != null) _player.OnAttack -= HandlePlayerAttack;
-            if (_playerHealth != null) _playerHealth.OnDamaged -= HandleHurt;
+            if (_playerHealth != null)
+            {
+                _playerHealth.OnDamaged -= HandleHurt;
+                _playerHealth.OnHealed -= HandleHealed;
+            }
             if (_lumberjack != null)
             {
                 _lumberjack.OnAttack -= HandleAttack;
@@ -69,6 +88,7 @@ namespace ProjectRimba.Player
                 _animator.SetBool(IsGroundedHash, _player.IsGrounded);
                 _animator.SetBool(IsGrapplingHash, _player.IsGrappling);
                 _animator.SetBool(IsHealingHash, _playerAdrenaline != null && _playerAdrenaline.IsHealing);
+                UpdateHealGlow();
             }
             else if (_lumberjack != null)
             {
@@ -97,6 +117,31 @@ namespace ProjectRimba.Player
         private void HandleHurt()
         {
             _animator.SetTrigger(HurtHash);
+        }
+
+        private void HandleHealed()
+        {
+            _healGlowTimer = 0.6f;
+        }
+
+        private void UpdateHealGlow()
+        {
+            if (_healGlowTimer <= 0f) return;
+
+            _healGlowTimer -= Time.deltaTime;
+            float t = Mathf.Clamp01(_healGlowTimer / 0.6f);
+            if (_sprite != null)
+            {
+                _sprite.color = Color.Lerp(Color.white, new Color(0.55f, 1f, 0.6f, 1f), t * 0.85f);
+            }
+            if (_healGlowSr != null && _sprite != null)
+            {
+                _healGlowSr.enabled = t > 0f;
+                _healGlowSr.sprite = _sprite.sprite;
+                _healGlowSr.flipX = _sprite.flipX;
+                _healGlowSr.transform.localScale = _sprite.transform.localScale * (1.14f + (1f - t) * 0.22f);
+                _healGlowSr.color = new Color(0.3f, 1f, 0.45f, t * 0.78f);
+            }
         }
     }
 }

@@ -48,6 +48,7 @@ namespace ProjectRimba.Player
         [Header("Visuals")]
         [SerializeField] private LineRenderer grappleLine;
         [SerializeField] private SpriteRenderer slashVisual;
+        [SerializeField] private Material pythonGrappleMaterial;
 
         public event Action<bool> OnPythonUnlockedChanged;
         public event Action<Vector2> OnAttack;
@@ -66,8 +67,19 @@ namespace ProjectRimba.Player
             HasPythonSkill = true;
             if (grappleLine != null)
             {
-                grappleLine.startColor = new Color(0.25f, 0.85f, 0.4f, 1f);
-                grappleLine.endColor = new Color(0.25f, 0.85f, 0.4f, 1f);
+                if (pythonGrappleMaterial != null)
+                {
+                    grappleLine.sharedMaterial = pythonGrappleMaterial;
+                    grappleLine.startColor = Color.white;
+                    grappleLine.endColor = Color.white;
+                    grappleLine.startWidth = 0.55f;
+                    grappleLine.endWidth = 0.55f;
+                }
+                else
+                {
+                    grappleLine.startColor = new Color(0.25f, 0.85f, 0.4f, 1f);
+                    grappleLine.endColor = new Color(0.25f, 0.85f, 0.4f, 1f);
+                }
             }
             OnPythonUnlockedChanged?.Invoke(true);
         }
