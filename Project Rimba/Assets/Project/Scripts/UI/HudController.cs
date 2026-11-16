@@ -23,6 +23,13 @@ namespace ProjectRimba.UI
         [SerializeField] private Color unlockedSkillColor = new Color(0.2f, 0.95f, 0.55f, 1f);
         [SerializeField] private Color lockedSkillColor = new Color(0.2f, 0.2f, 0.2f, 0.45f);
 
+        [Header("Skill Unlock Popup")]
+        [SerializeField] private GameObject pythonPopupPanel;
+        [SerializeField] private float popupDuration = 6f;
+
+        private bool _hasShownPopup;
+        private float _popupHideTime;
+
         private void OnEnable()
         {
             if (playerHealth != null) playerHealth.OnHealthChanged += UpdateHealth;
@@ -101,11 +108,30 @@ namespace ProjectRimba.UI
             }
         }
 
+        private void Update()
+        {
+            if (pythonPopupPanel != null && pythonPopupPanel.activeSelf && Time.unscaledTime >= _popupHideTime)
+            {
+                pythonPopupPanel.SetActive(false);
+            }
+        }
+
+        public void HidePythonPopup()
+        {
+            if (pythonPopupPanel != null) pythonPopupPanel.SetActive(false);
+        }
+
         private void UpdatePythonSkill(bool unlocked)
         {
             if (pythonSkillIcon != null)
             {
                 pythonSkillIcon.color = unlocked ? unlockedSkillColor : lockedSkillColor;
+            }
+            if (unlocked && !_hasShownPopup && pythonPopupPanel != null)
+            {
+                _hasShownPopup = true;
+                pythonPopupPanel.SetActive(true);
+                _popupHideTime = Time.unscaledTime + popupDuration;
             }
         }
     }
