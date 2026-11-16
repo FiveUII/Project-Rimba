@@ -17,6 +17,7 @@ namespace ProjectRimba.Player
 
         public float CurrentAdrenaline { get; private set; }
         public float MaxAdrenaline => maxAdrenaline;
+        public bool IsHealing { get; private set; }
 
         private PlayerHealth _health;
         private float _healTimer;
@@ -39,6 +40,7 @@ namespace ProjectRimba.Player
 
             if (!canHeal)
             {
+                IsHealing = false;
                 if (_healTimer > 0f)
                 {
                     _healTimer = 0f;
@@ -46,6 +48,8 @@ namespace ProjectRimba.Player
                 }
                 return;
             }
+
+            IsHealing = true;
 
             _healTimer += Time.deltaTime;
             OnHealProgress?.Invoke(Mathf.Clamp01(_healTimer / healHoldDuration));

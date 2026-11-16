@@ -14,12 +14,16 @@ namespace ProjectRimba.Player
         private static readonly int IsGroundedHash = Animator.StringToHash("IsGrounded");
         private static readonly int IsGrapplingHash = Animator.StringToHash("IsGrappling");
         private static readonly int IsWindingUpHash = Animator.StringToHash("IsWindingUp");
+        private static readonly int IsHealingHash = Animator.StringToHash("IsHealing");
         private static readonly int AttackHash = Animator.StringToHash("Attack");
+        private static readonly int AttackUpHash = Animator.StringToHash("AttackUp");
+        private static readonly int AttackDownHash = Animator.StringToHash("AttackDown");
         private static readonly int HurtHash = Animator.StringToHash("Hurt");
 
         private Animator _animator;
         private OrangutanController _player;
         private PlayerHealth _playerHealth;
+        private PlayerAdrenaline _playerAdrenaline;
         private Rigidbody2D _playerRb;
         private AxeLumberjack _lumberjack;
         private SpriteRenderer _sprite;
@@ -30,13 +34,14 @@ namespace ProjectRimba.Player
             _sprite = GetComponent<SpriteRenderer>();
             _player = GetComponentInParent<OrangutanController>();
             _playerHealth = GetComponentInParent<PlayerHealth>();
+            _playerAdrenaline = GetComponentInParent<PlayerAdrenaline>();
             _playerRb = GetComponentInParent<Rigidbody2D>();
             _lumberjack = GetComponentInParent<AxeLumberjack>();
         }
 
         private void OnEnable()
         {
-            if (_player != null) _player.OnAttack += HandleAttack;
+            if (_player != null) _player.OnAttack += HandlePlayerAttack;
             if (_playerHealth != null) _playerHealth.OnDamaged += HandleHurt;
             if (_lumberjack != null)
             {
@@ -47,7 +52,7 @@ namespace ProjectRimba.Player
 
         private void OnDisable()
         {
-            if (_player != null) _player.OnAttack -= HandleAttack;
+            if (_player != null) _player.OnAttack -= HandlePlayerAttack;
             if (_playerHealth != null) _playerHealth.OnDamaged -= HandleHurt;
             if (_lumberjack != null)
             {
@@ -63,6 +68,7 @@ namespace ProjectRimba.Player
                 _animator.SetFloat(SpeedHash, Mathf.Abs(_playerRb.linearVelocity.x));
                 _animator.SetBool(IsGroundedHash, _player.IsGrounded);
                 _animator.SetBool(IsGrapplingHash, _player.IsGrappling);
+                _animator.SetBool(IsHealingHash, _playerAdrenaline != null && _playerAdrenaline.IsHealing);
             }
             else if (_lumberjack != null)
             {
@@ -74,6 +80,13 @@ namespace ProjectRimba.Player
                     _sprite.flipX = _lumberjack.PatrolDir > 0;
                 }
             }
+        }
+
+        private void HandlePlayerAttack(Vector2 dir)
+        {
+            if (dir.y > 0.5f) _animator.SetTrigger(AttackUpHash);
+            else if (dir.y < -0.5f) _animator.SetTrigger(AttackDownHash);
+            else _animator.SetTrigger(AttackHash);
         }
 
         private void HandleAttack()

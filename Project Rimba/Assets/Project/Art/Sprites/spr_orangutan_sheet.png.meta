@@ -142,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8436afc028b617e4d8e931fb1de4e390
+      spriteID: cb7aabeca39f7a746a0a8861ac5e16d4
       internalID: -1972452584
       vertices: []
       indices: 
@@ -164,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8042e808f66a3e149b22f84b1bfaea7f
+      spriteID: 1defd8468af485f42809b9bc8106236f
       internalID: -925518497
       vertices: []
       indices: 
@@ -186,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 509fca76ae9d6b043aa9f74bfdc1899d
+      spriteID: e0984cc423a75434ead7913e0867b85c
       internalID: -1935171121
       vertices: []
       indices: 
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5afec132f5691c4c9a3078dc81b11ce
+      spriteID: 0992b2a36f2ddcf4497a40e44a48ea10
       internalID: -402483617
       vertices: []
       indices: 
@@ -230,7 +230,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe01469251d15c4891a61a92e940296
+      spriteID: af91f615d91c1f346a9e35e322efc06a
       internalID: 338274324
       vertices: []
       indices: 
@@ -252,8 +252,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b51be74554fc3149bc55bcd9c2aeb57
+      spriteID: 21a3e2b388fa4b146ba2ea6b6e5aca10
       internalID: 2135885181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orangutan_attack_up
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37546e41d9ea0bb43a165fbe22866e33
+      internalID: -98141233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orangutan_attack_down
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f152a5a065a8249b33ce4bcffd701a
+      internalID: -1881391000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orangutan_eat_1
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280115e9af02cc54db90b4cb75795842
+      internalID: -41560210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orangutan_eat_2
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27abeffcdcab75f44b726936f1972e63
+      internalID: 2056172604
       vertices: []
       indices: 
       edges: []
@@ -273,6 +361,10 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       orangutan_attack: -402483617
+      orangutan_attack_down: -1881391000
+      orangutan_attack_up: -98141233
+      orangutan_eat_1: -41560210
+      orangutan_eat_2: 2056172604
       orangutan_hurt: 2135885181
       orangutan_idle: -1972452584
       orangutan_jump: -1935171121
