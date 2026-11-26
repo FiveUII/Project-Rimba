@@ -57,6 +57,20 @@
 * **Highlight Dahan Grapple:** `#A2CC72`, `#D6F29B`
 * **Bahaya / Duri Sawit / Ikat Kepala Musuh / Telegraph:** `#B52F35`, `#E64E4E`, `#FFD875`
 * **Skill Ular Piton / Heal Glow:** `#3E8C4A`, `#7BC468`, `#CFE892`
+* **Status Terbakar (`Burn` VFX):** `#FF6B2B`, `#FFAE42` + partikel bara & asap pada tubuh Orangutan.
+
+### E. Desain Karakter Musuh Indonesia & Variasi Baju *(LOCKED)*
+Setiap tipe musuh punya **siluet unik** agar terbaca instan dalam `0.1` detik, lalu divariasikan memakai **3 *palette swap*** (`palette_tool.py variants / luts`, 0 animasi tambahan):
+1. **`AxeLogger` (Penebang Kapak — Mob Dasar):** Kaos oblong + **topi pet gelap** + celana kerja + kapak baja.
+2. **`TorchLogger` (Penebang Obor / Pelempar — Ranged):** Kaos gelap + **tas pinggang (*waist bag*)** + obor / proyektil api.
+3. **`ChainsawLogger` (Penebang Gergaji Mesin — Elite):** Baju lengan panjang + **kupluk/penutup kepala gelap** + **sepatu bot karet tinggi** + gergaji mesin besar (`RevUp` → `Rush` → `Stall`).
+4. **Boss Latar 1 — *Si Pembakar Hutan (Arsonist Foreman)* (`64–76 px`):** Masker/penutup wajah, tangki bahan bakar di punggung, penyembur api, dan jerigen bara.
+
+* **3 Variasi Palet Baju (Dipakai Acak per Spawn):**
+  * **Varian 1:** Atasan *olive/khaki* pudar + celana merah marun + bot hitam.
+  * **Varian 2:** Kaos abu-hitam lusuh + celana gelap + tas pinggang.
+  * **Varian 3:** Kaos biru pudar / krem berlumpur + celana training gelap berlumpur.
+  * **Aturan Kontras:** Dilarang memberi kaos oranye terang pada musuh agar tidak bentrok secara visual dengan bulu **Orangutan (`#E0782B` / `#F5AC56`)**.
 
 ---
 
