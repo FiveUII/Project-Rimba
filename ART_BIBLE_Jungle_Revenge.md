@@ -30,9 +30,9 @@
 | Kategori Aset | Tinggi / Ukuran `1x` | Catatan & Acuan |
 | :--- | :--- | :--- |
 | **Hero — Orangutan Kalimantan *(LOCKED)*** | **`48 px`** tinggi bodi (`53 x 50` px total, `anchor: [22, 49]`) | Master: `art_forge/orangutan-master/master.json`; Palet: `art_forge/orangutan-hibit-48/palette.json` (`16` warna + outline `#360800`). |
-| **Mob (Penebang Indonesia / Pelempar)** | `40–44 px` tinggi | Tidak boleh lebih tinggi dari Hero; `16` warna + `--outline auto`. |
+| **Mob (Penebang Indonesia / Pelempar)** | `50–54 px` tinggi (`~34x52`, berdiri tegak ramping vs Hero bungkuk lebar) | Lebih tinggi sedikit dari orangutan bungkuk untuk kontras siluet & tetap nyaman di-*pogo*; `16` warna + `--outline auto`. |
 | **NPC Hewan (Ular Piton) & Kandang** | Piton `24–28 px`; Kandang `48–56 px` (`3–3.5` tile) | Kandang punya 3 state (`closed`, `cracked`, `open`). |
-| **Boss Latar 1** | `80–96 px` tinggi (`~1.7x–2x` Hero) | Siluet besar dengan *telegraph* warna terang yang jelas. |
+| **Boss Latar 1** | `64–76 px` tinggi (`~1.4x–1.6x` Hero, manusia + peralatan berat/tangki; `80–96 px` khusus bos alat berat) | Siluet mengintimidasi dengan *telegraph* warna terang yang jelas. |
 | **Proyektil & Item (Kapak, Pisang)** | `14–18 px` | Kontras tinggi agar terbaca di udara. |
 | **Environment (`Tilemap` & Prop)** | Tile `16 x 16 px`; Duri Sawit `16 x 16 px`; Pohon `96–128 px` tinggi; Gubuk `80–96 px` lebar | Dahan grapple dipisah agar bisa di-highlight runtime tanpa menyinari seluruh pohon. |
 
