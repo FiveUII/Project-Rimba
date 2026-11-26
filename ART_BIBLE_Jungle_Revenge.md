@@ -29,7 +29,7 @@
 ### Skala Aset Terkunci (Ukuran Piksel `1x`)
 | Kategori Aset | Tinggi / Ukuran `1x` | Catatan & Acuan |
 | :--- | :--- | :--- |
-| **Hero — Orangutan Kalimantan *(LOCKED)*** | **`48 px`** tinggi bodi (`53 x 50` px total, `anchor: [22, 49]`) | Master: `art_forge/orangutan-master/master.json`; Palet: `art_forge/orangutan-hibit-48/palette.json` (`16` warna + outline `#360800`). |
+| **Hero — Orangutan Kalimantan *(LOCKED)*** | **`36 px`** tinggi bodi (`40 x 38` px total, `anchor: [17, 37]`) | Master: `art_forge/orangutan-hibit-36/frames/frame_0001.png`; Palet: `art_forge/orangutan-hibit-48/palette.json` (`16` warna + outline `#360800`). |
 | **Mob (Penebang Indonesia / Pelempar)** | `50–54 px` tinggi (`~34x52`, berdiri tegak ramping vs Hero bungkuk lebar) | Lebih tinggi sedikit dari orangutan bungkuk untuk kontras siluet & tetap nyaman di-*pogo*; `16` warna + `--outline auto`. |
 | **NPC Hewan (Ular Piton) & Kandang** | Piton `24–28 px`; Kandang `48–56 px` (`3–3.5` tile) | Kandang punya 3 state (`closed`, `cracked`, `open`). |
 | **Boss Latar 1** | `64–76 px` tinggi (`~1.4x–1.6x` Hero, manusia + peralatan berat/tangki; `80–96 px` khusus bos alat berat) | Siluet mengintimidasi dengan *telegraph* warna terang yang jelas. |

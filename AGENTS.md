@@ -23,5 +23,5 @@ Guidelines khusus untuk pengembangan game di workspace ini. Prioritaskan perform
 ## 4. Sprite & 2D Art Generation (Mandatory)
 - Setiap kali user meminta membuat, mengubah, atau me-remodel sprite 2D, karakter, prop, FX, animasi, tile, atau background/plate, WAJIB baca dan ikuti skill `agent-sprite-forge` di `.agents/skills/` (`generate2dsprite`, `video2dsprite`, `generate2dmap`, `generate2dmedia`, serta `codeart2d` hanya jika diminta eksplisit atau tidak ada rute model gambar/video).
 - Untuk game pixel art (*Jungle Revenge* / gaya *Rusted Moss*), gunakan pipeline `hibit` (`master_still.py prompt --finish hibit` -> buat master flat lineless -> `master_still.py approve` -> `video2dsprite/scripts/finish_frames.py hibit`) atau `pixel_look.py` saat menyamakan dengan referensi piksel; simpan proses kerja di `art_forge/` (di luar `Project Rimba/Assets/`) dan salin hasil final yang sudah disetujui ke `Project Rimba/Assets/Project/Art/`.
-- Selalu patuhi standar visual terkunci di `ART_BIBLE_Jungle_Revenge.md` (Hero `48 px`, `16` PPU, kanvas `480x270`, `Filter Mode: Point`, palet & skala terkunci).
+- Selalu patuhi standar visual terkunci di `ART_BIBLE_Jungle_Revenge.md` (Hero `36 px`, `16` PPU, kanvas `480x270`, `Filter Mode: Point`, palet & skala terkunci).
 - Selalu laporkan provenance (`route`, model, angka QA / peringatan WARN atau FAIL secara verbatim).
