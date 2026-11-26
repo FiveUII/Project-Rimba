@@ -49,16 +49,14 @@
 * **Zona D — Gerbang Kamp (Tile `155–180`):**
   * Pertarungan penutup kecil (`1` `ChainsawLogger` + `1` `TorchLogger`) → area istirahat aman & *Checkpoint* sebelum arena Boss.
 
-### C. Boss Arena: *Puncak Kamp — Si Pembakar Hutan* (`~3–4 menit + retry`, lebar `~45` tile)
+### C. Boss Arena: *Puncak Kamp — Si Pembakar Hutan (Mandor Kaleng Api)* (`~3–4 menit + retry`, lebar `~45` tile)
 * **Tata Arena:** Lantai rata sepanjang `1.5x` layar (`~45` tile) dengan **3 dahan grapple** di ketinggian atas untuk rotasi posisi, kabur dari api, dan *pogo*.
-* **Boss (`64–76 px`):** **Si Pembakar Hutan (*Arsonist Foreman*)** — pelaku pembakaran hutan di Opening Cutscene.
+* **Boss (`64–70 px`, `~650 HP` / `~26` pukul):** **Si Pembakar Hutan (*Mandor Kaleng Api*)** — memakai kain penutup hidung/mulut, sabuk penuh selipan kaleng semprot (aerosol), tangan kiri memegang korek api, tangan kanan memegang kaleng semprot.
 * **Pola Serangan:**
-  * **Fase 1 (`100%–50% HP`):**
-    1. *Klik Korek (`telegraph 0.7s`) → Semburan Api Horizontal:* Hindari lewat atas memakai dahan grapple atau lompat + *pogo*.
-    2. *Lempar Jerigen Bara:* Jatuh ke lantai membentuk genangan api sementara yang memicu status `Burn` jika terinjak.
-  * **Fase 2 (`< 50% HP`):**
-    1. Semburan api sambil bergerak menyapu setengah arena + `2` titik jerigen bara bergantian.
-    2. **Jendela Serang:** Setelah menyemburkan api besar, tangki bahan bakar kehabisan tekanan (`1.8s` animasi pompa/isi ulang) — aman untuk dihajar keras.
+  1. **Semburan Aerosol (*Aerosol Jet*):** Klik korek (`telegraph 0.7s`, *SFX `"KLEK!"`*) → semburan lidah api horizontal ke depan (memicu **`Burn`**). *Counter:* **Grapple** ke dahan atas atau lompat + **Pogo** di atas kepalanya.
+  2. **Lempar Kaleng Panas (*Aerosol Bomb*):** Kocok kaleng (`0.6s`, *SFX `"KOCOK-KOCOK"`*) → lempar `1` kaleng (Fase 2: `2` kaleng) melengkung → mendesis `1.0s` lalu meledak menjadi genangan api gambut selama `4s` (memicu **`Burn`**). *Bonus Counter:* Kaleng di udara **bisa dipukul balik (*deflect*)** ke arah Boss agar langsung *stagger*.
+  3. **Bakar Kanopi (*Canopy Sweep* — Fase 2 `< 50% HP`):** Angkat korek & kaleng ke atas (`telegraph 0.8s`) → menyemburkan api ke **1 dari 3 dahan grapple** menjadi **`BurningBranch`** selama `6` detik (memaksa pemain terus berpindah dahan).
+  * **Jendela Balas Serang (*Ganti Kaleng* — `1.8s`):** Setiap `3` serangan kaleng habis (*SFX `"PSSSHT..."`*) → ia membuang kaleng kosong dan **mengambil + mengocok kaleng baru dari sabuknya (`1.8s`)**, memberi jendela aman untuk menghajar Boss atau **Heal (`E`)**.
 * **Ending v1:** Si Pembakar tumbang, api di sektor rimba padam, siluet **Orangutan & Ular Piton** berdiri di atas kanopi yang mulai pulih dengan teaser kepulan asap tambang di kejauhan (*Latar 2*).
 
 ---

@@ -64,7 +64,7 @@ Setiap tipe musuh punya **siluet unik** agar terbaca instan dalam `0.1` detik, l
 1. **`AxeLogger` (Penebang Kapak — Mob Dasar):** Kaos oblong + **topi pet gelap** + celana kerja + kapak baja.
 2. **`TorchLogger` (Penebang Obor / Pelempar — Ranged):** Kaos gelap + **tas pinggang (*waist bag*)** + obor / proyektil api.
 3. **`ChainsawLogger` (Penebang Gergaji Mesin — Elite):** Baju lengan panjang + **kupluk/penutup kepala gelap** + **sepatu bot karet tinggi** + gergaji mesin besar (`RevUp` → `Rush` → `Stall`).
-4. **Boss Latar 1 — *Si Pembakar Hutan (Arsonist Foreman)* (`64–76 px`):** Masker/penutup wajah, tangki bahan bakar di punggung, penyembur api, dan jerigen bara.
+4. **Boss Latar 1 — *Si Pembakar Hutan (Mandor Kaleng Api)* (`64–70 px`):** Kain penutup hidung/mulut, **sabuk penuh selipan kaleng semprot (aerosol)** di dada/pinggang, tangan kiri memegang **korek api menyala** (`#FFD875`), tangan kanan memegang **kaleng semprot**, sepatu bot karet.
 
 * **3 Variasi Palet Baju (Dipakai Acak per Spawn):**
   * **Varian 1:** Atasan *olive/khaki* pudar + celana merah marun + bot hitam.
